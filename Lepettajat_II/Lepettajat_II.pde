@@ -5,8 +5,8 @@ float phi = 0.618;
 float pulseNoise = 0;
 
 void setup () {
-  size (1600, 900);
-  //fullScreen ();
+  //size (1600, 900);
+  fullScreen ();
   background (0);
   frameRate (60);
   smooth ();

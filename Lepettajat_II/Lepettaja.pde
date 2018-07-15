@@ -6,6 +6,7 @@ class Lepettaja {
   PVector target;
   PVector desired;
   PVector steer;
+  PVector steerHarder;
   float maxSpeed = .2;
   float maxForce = 1;
   float radius = height * (phi/50);
@@ -91,8 +92,8 @@ class Lepettaja {
       }
     }
     if (close) {
-      steer = steer.mult(-2);
-      ApplyForce (steer);
+      steerHarder = steer.mult(-2);
+      ApplyForce (steerHarder);
     } else {
       ApplyForce (steer);
     }
