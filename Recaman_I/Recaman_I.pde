@@ -2,6 +2,8 @@ int [] recaman = {};
 float centX;
 float centY;
 int UPPER_BOUND = 2500;
+int i;
+float strokeVal = 255;
 
 void setup () {
   
@@ -16,22 +18,28 @@ void setup () {
   
   RecamanGen ();
   
-  strokeWeight (.5);
-  noFill ();
-  float mid;
-  float arcWidth;
-  float strokeVal = 255;
-  for (int i = 0; i < UPPER_BOUND - 1; i++) {
-    stroke (strokeVal);
-    mid = ((recaman [i + 1] - recaman [i]) / 2) + recaman [i];
-    arcWidth = (recaman [i + 1] - recaman [i]) / 2;
-    arc(mid, centY, arcWidth, arcWidth, 0, 180);
-    strokeVal -= .12;
-  }
+  i = 0;
+  strokeVal = 255;
   
 }
 
 void draw () {
+  
+  strokeWeight (.5);
+  noFill ();
+  float mid;
+  float arcWidth;
+  
+  stroke (strokeVal);
+  mid = ((recaman [i + 1] - recaman [i]) / 2) + recaman [i];
+  arcWidth = (recaman [i + 1] - recaman [i]) / 2;
+  arc(mid, centY, arcWidth, arcWidth, 0, 180);
+  strokeVal -= .12;
+
+  i++;
+  if (i >= UPPER_BOUND - 1) {
+    noLoop();
+  }
   
 }
 
